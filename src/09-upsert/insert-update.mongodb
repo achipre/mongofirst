@@ -1,0 +1,9 @@
+use("chipre_store");
+// insertar un nuevo dia
+// db.iot.insertOne({ sensor: "A001", date: "2022-01-03", readings: [123456789] });
+
+// actualizar el mismo dia
+db.iot.updateOne({ sensor: "A001", date: "2022-01-03" }, { $push: { readings: 5555 } });
+
+// eliminar un registro 1 (al fianl) -1 (al inicio)
+// db.iot.updateOne({ sensor: "A001", date: "2022-01-03" }, { $pop: { readings: 1 } });

@@ -1,0 +1,7 @@
+use("chipre_store");
+
+// db.monthlyBudget.find({
+//   spent: { $gte: 450 },
+// });
+
+db.monthlyBudget.find({ $expr: { $lte: ["$spent", "$budget"] } });

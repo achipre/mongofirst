@@ -1,0 +1,2 @@
+use("chipre_store");
+db.categories.find().skip(10).limit(4);

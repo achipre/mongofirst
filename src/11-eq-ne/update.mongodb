@@ -1,0 +1,9 @@
+use("chipre_store");
+db.inventory.updateMany(
+  // query
+  {
+    qty: { $ne: 20 },
+  },
+  // operator =>incrementar
+  { $inc: { qty: 100 } }
+);

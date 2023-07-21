@@ -1,0 +1,26 @@
+use("chipre_store");
+// remover un elemento del array de los documentos
+// db.inventory.updateMany(
+//   // query
+//   {},
+//   // operartor => push
+//   {
+//     $pull: {
+//       tags: "book",
+//     },
+//   }
+// );
+
+// remover varios elemento del array de los documentos
+db.inventory.updateMany(
+  // query
+  {},
+  // operartor => push
+  {
+    $pull: {
+      tags: {
+        $in: ["school", "appliance"],
+      },
+    },
+  }
+);

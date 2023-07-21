@@ -1,0 +1,13 @@
+use("sample_training");
+
+// db.zips.find();
+
+db.zips
+  .find({ pop: { $gte: 3000 } })
+  // sort 1 = 0-10, A-Z
+  // sort -1 = 10-0, Z-A
+  .sort({ pop: -1 })
+  // cunatos Documentos .limit(10)
+  .limit(2)
+  // cunatos Documentos voy a saltarme (10)
+  .skip(2);

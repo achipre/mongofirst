@@ -1,0 +1,3 @@
+use("chipre_store");
+
+db.products.find();

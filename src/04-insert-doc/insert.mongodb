@@ -1,0 +1,4 @@
+use("chipre_store");
+
+db.products.insertOne({ _id: 1, name: "Producto Uno", price: 1000 });
+db.products.insertOne({ _id: 2, name: "Producto Dos", price: 2000 });

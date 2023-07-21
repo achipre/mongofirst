@@ -1,0 +1,11 @@
+use("chipre_store");
+db.products.updateOne(
+  // query
+  { _id: ObjectId("64b71b6cf86020c4117780d7") },
+  // change => operators
+  {
+    $inc: {
+      price: 55,
+    },
+  }
+);

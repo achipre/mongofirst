@@ -1,0 +1,18 @@
+use("chipre_store");
+// Contenga una palabra o frase exacta: "palabra"
+// db.inventory.find({ "item.description": "Single line description." });
+
+// Incluya una palabra: /palabra/
+// db.inventory.find({ "item.description": { $regex: /Many/ } });
+
+// No pimorta minuscula o mayuscula con una palabra i
+// db.inventory.find({ "item.description": { $regex: /LINE/i } });
+
+// Termine con una palabra $
+// db.inventory.find({ "item.description": { $regex: /line$/i } });
+
+// Empiece con una palabra ^
+// db.inventory.find({ "item.description": { $regex: /^single/i } });
+
+// Empiece con una palabra ^ incluyendo salto de linea m
+db.inventory.find({ "item.description": { $regex: /^s/im } });

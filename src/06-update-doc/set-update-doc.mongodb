@@ -1,0 +1,7 @@
+use("chipre_store");
+db.products.updateOne(
+  // query
+  { _id: 1 },
+  // change => operators
+  { $set: { name: "Pantalon de Tela", price: 999, tag: ["clothes", "sport"] } }
+);

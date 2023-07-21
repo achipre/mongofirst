@@ -1,0 +1,13 @@
+use("sample_training");
+db.zips.updateMany(
+  // query
+  {
+    city: "CLEVELAND",
+  },
+  // Operators
+  {
+    $inc: {
+      pop: 1000,
+    },
+  }
+);

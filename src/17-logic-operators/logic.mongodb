@@ -1,0 +1,42 @@
+use("sample_training");
+
+// AND IMPLICITO
+db.inspections
+  .find({
+    sector: "Tax Preparers - 891",
+    result: "Unable to Locate",
+  })
+  .count();
+
+// AND EXPLICITO $and [{}, {}, {}]
+db.inspections
+  .find({
+    $and: [{ sector: "Tax Preparers - 891" }, { result: "Unable to Locate" }],
+  })
+  .count();
+
+// OR EXPLICITO $or [{}, {}, {}]
+db.inspections.find({
+  $or: [{ sector: "Tax Preparers - 891" }, { result: "Unable to Locate" }],
+});
+
+// NOR EXPLICITO $nor [{}, {}, {}]
+db.inspections
+  .find({
+    $nor: [{ sector: "Tax Preparers - 891" }, { result: "Unable to Locate" }],
+  })
+  .count();
+db.inspections.find(
+  {
+    $nor: [{ result: "No Violation Issued" }, { result: "Unable to Locate" }],
+  },
+  {
+    result: 1,
+    _id: 0,
+  }
+);
+
+// NOT EXPLICITO $not {}
+db.inspections.find({
+  result: { $not: { $regex: /Unable to Locate/ } },
+});

@@ -1,0 +1,26 @@
+use("chipre_store");
+
+// $in sirve para objetoc y arrays
+// db.inventory.find({ qty: { $in: [30, 15] } });
+// tags es un array
+// db.inventory.find({ tags: { $in: ["book", "electronics"] } });
+
+// $nin sirve para objetoc y arrays no lo incluya
+// db.inventory.find({ qty: { $nin: [30, 15] } });
+// tags es un array
+// db.inventory.find({ tags: { $nin: ["book", "electronics"] } });
+
+// Solo para arrays
+// db.inventory.find({ tags: "book" });
+// extriccto en posicion
+// db.inventory.find({ tags: ["school", "book"] });
+// db.inventory.find({ tags: ["book", "school"] });
+
+// Solo para arrays $all
+// db.inventory.find({ tags: { $all: ["book", "school"] } });
+// Solo para arrays $size
+// db.inventory.find({ tags: { $size: 2 } });
+
+// Solo para arrays con objetos $elemMatch
+// db.survey.find({ results: { $elemMatch: { product: "xyz" } } });
+db.survey.find({ results: { $elemMatch: { product: "xyz", score: { $gte: 7 } } } });
